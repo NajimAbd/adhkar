@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Créer un lien Adhkar</title>
+<style>
+body{margin:0;padding:24px 16px;font:17px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:#eef2f0;color:#14231f}
+main{max-width:520px;margin:0 auto}
+h1{font-size:26px;margin:0 0 4px;color:#0e4a3b}
+p{color:#5b6b66}
+label{display:block;margin:18px 0 6px;font-weight:600}
+input{width:100%;box-sizing:border-box;font:inherit;padding:14px;border:1px solid #c5d2cd;border-radius:12px;background:#fff}
+button{margin-top:14px;width:100%;font:inherit;font-weight:700;padding:15px;border:0;border-radius:12px;background:#0e4a3b;color:#fff;cursor:pointer}
+button.alt{background:#1d6b58}
+.out{margin-top:20px;padding:14px;border-radius:12px;background:#fff;border:1px solid #c5d2cd;word-break:break-all}
+</style></head><body><main>
+<h1>RoqyaSuisse Adhkar</h1>
+<p>Écris le prénom de la personne : le lien personnel se crée tout seul.</p>
+<label for="n">Prénom de la personne</label>
+<input id="n" type="text" maxlength="40" autocomplete="off" placeholder="Par exemple : Fatima">
+<label for="s">Adresse où l'application est installée</label>
+<input id="s" type="text" value="https://roqyasuisse.com/adhkar/">
+<div class="out" id="o">Le lien apparaîtra ici.</div>
+<button id="c" type="button">Copier le lien</button>
+<button id="m" type="button" class="alt">Copier le message à envoyer</button>
+</main>
+<script>
+const n=document.getElementById("n"),s=document.getElementById("s"),o=document.getElementById("o");
+function link(){const v=n.value.trim();if(!v)return"";let b=s.value.trim();if(!b.endsWith("/")&&!b.includes("?"))b+="/";return b+"?nom="+encodeURIComponent(v)}
+function paint(){o.textContent=link()||"Le lien apparaîtra ici."}
+function cp(t,b){if(!t)return;const done=()=>{const x=b.textContent;b.textContent="Copié ✓";setTimeout(()=>b.textContent=x,1600)};
+ if(navigator.clipboard)navigator.clipboard.writeText(t).then(done,()=>fb());else fb();
+ function fb(){const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(e){}a.remove()}}
+n.oninput=paint;s.oninput=paint;paint();
+document.getElementById("c").onclick=e=>cp(link(),e.target);
+document.getElementById("m").onclick=e=>{const l=link();if(l)cp("As-salamu alaykum "+n.value.trim()+",\n\nUn petit cadeau de RoqyaSuisse : une application d'adhkar spécialement pour vous.\n\nOuvrez ce lien : "+l+"\n\nSur téléphone : appuyez sur Partager puis « Sur l'écran d'accueil » (iPhone), ou sur les trois points puis « Installer l'application » (Android).\nSur ordinateur : cliquez sur l'icône d'installation à droite de la barre d'adresse.\n\nNajim Abdelwahad - RoqyaSuisse.com",e.target)};
+</script></body></html>

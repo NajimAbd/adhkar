@@ -1,0 +1,5 @@
+RoqyaSuisse Adhkar - application installable
+
+1. Mettre les fichiers de ce dossier (sauf generateur.html si tu veux le garder pour toi) dans un dossier "adhkar" de roqyasuisse.com.
+2. Ouvrir generateur.html, ecrire le prenom, copier le message : il contient deja le lien personnel et les explications d'installation.
+Le lien a la forme : https://roqyasuisse.com/adhkar/?nom=Prenom
