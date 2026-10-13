@@ -313,7 +313,7 @@ function welcome(){
   crumbEl.innerHTML="";viewEl.innerHTML="";
   let sel=state.lang||detect();
   const w=document.createElement("section");w.className="welcome";
-  w.innerHTML='<div class="stage mid" aria-hidden="true">'+STAR("s2")+STAR("s1")+'</div><p class="salam" lang="ar" dir="rtl">السلام عليكم</p><p class="for" id="w-t"></p><h2 class="bigname"></h2><div class="lbl" id="w-g"></div><div class="langs" role="group" id="langs"></div><button type="button" class="start" id="go"></button>';
+  w.innerHTML='<div class="stage mid" aria-hidden="true">'+STAR("s2")+STAR("s1")+'</div><h2 class="bigname"></h2><p class="salam" lang="ar" dir="rtl">السلام عليكم</p><p class="for" id="w-t"></p><div class="lbl" id="w-g"></div><div class="langs" role="group" id="langs"></div><button type="button" class="start" id="go"></button>';
   viewEl.appendChild(w);
   const go_=w.querySelector("#go"),lg=w.querySelector("#langs");
   w.querySelector(".bigname").textContent=NAME;
